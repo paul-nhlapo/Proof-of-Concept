@@ -1,0 +1,48 @@
+<section class="app">
+  <ng-container>
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <div class="row">
+          <div class="col-md-2 sidebar">
+            <ul class="nav flex-column">
+              <li>
+                <p href="#"><span>INF354 Assignment 3</span></p>
+                <ul class="nav-flyout">
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/products/:id">
+                    Product Listing
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/add-product">
+                       Add Product
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="/report">
+                      Generate report
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" (click)="logout()" routerLink="/login">
+                       Logout
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </aside>
+  </ng-container>
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10 main-content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

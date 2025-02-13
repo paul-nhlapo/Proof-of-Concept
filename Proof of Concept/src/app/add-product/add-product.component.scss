@@ -1,0 +1,94 @@
+
+.custom-shape-divider-bottom-1684589298 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+.Title{
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+
+}
+.custom-shape-divider-bottom-1684589298 svg {
+  position: relative;
+  display: block;
+  width: calc(119% + 1.3px);
+  height: 100%;
+}
+
+.custom-shape-divider-bottom-1684589298 .shape-fill {
+  fill: #0f0f0f;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  input[type="file"] {
+    margin-bottom: 1rem;
+  }
+
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .text-danger {
+    color: #dc3545;
+    font-size: 0.9rem;
+  }
+}
+
+textarea#description {
+  width: 100%;
+  height: 100px;
+}

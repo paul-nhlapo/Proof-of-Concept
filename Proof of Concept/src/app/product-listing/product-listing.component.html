@@ -1,0 +1,46 @@
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchText" placeholder="Search" (input)="filterProducts()">
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>
+        <span (click)="InOrder('image', 'asc')"></span>
+      </th>
+      <th>
+        <span (click)="InOrder('name', 'asc')">Name</span>
+      </th>
+      <th>
+        <span (click)="InOrder('price', 'asc')">Price</span>
+      </th>
+      <th>
+        <span (click)="InOrder('brand.name', 'asc')">Brand</span>
+      </th>
+      <th>
+        <span (click)="InOrder('productType.name', 'asc')">Product Type</span>
+      </th>
+      <th>
+        <span (click)="InOrder('description', 'asc')">Description</span>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <ng-container *ngIf="filteredProducts.length > 0; else noResults">
+      <tr *ngFor="let product of filteredProducts">
+        <td><img [src]="getImageUrl(product.image)" [alt]="product.name"></td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency: 'ZAR':'symbol':'1.2-2' }}</td>
+        <td>{{ product.brand.name }}</td>
+        <td>{{ product.productType.name }}</td>
+        <td>{{ product.description }}</td>
+      </tr>
+    </ng-container>
+    <ng-template #noResults>
+      <tr>
+        <td colspan="6">No results found.</td>
+      </tr>
+    </ng-template>
+  </tbody>
+</table>
+

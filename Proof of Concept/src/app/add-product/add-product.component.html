@@ -1,0 +1,85 @@
+
+<div class="container">
+  <h2 class="Title">Add Product</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="modern-form">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name" class="d-flex align-items-center">
+            <i class="bi bi-person-check me-2"></i>Name
+          </label>
+          <input type="text" class="form-control" id="name" formControlName="name" required>
+          <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+            <small class="text-danger" *ngIf="productForm.get('name')?.errors?.['required']">Name is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="price" class="d-flex align-items-center">
+            <i class="bi bi-currency-exchange me-2"></i>Price
+          </label>
+          <input type="number" class="form-control" id="price" formControlName="price" required>
+          <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)">
+            <small class="text-danger" *ngIf="productForm.get('price')?.errors?.['required']">Price is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="d-flex align-items-center">
+            <i class="bi bi-window-plus me-2"></i>Description
+          </label>
+          <textarea class="form-control" id="description" formControlName="description" required></textarea>
+          <div *ngIf="productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)">
+            <small class="text-danger" *ngIf="productForm.get('description')?.errors?.['required']">Description is required</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="brandId" class="d-flex align-items-center">
+            <i class="bi bi-bag-heart"></i>Brand
+          </label>
+          <select class="form-control" id="brandId" formControlName="brandId" required>
+            <option value="">Select a brand</option>
+            <option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.name}}</option>
+          </select>
+          <div *ngIf="productForm.get('brandId')?.invalid && (productForm.get('brandId')?.dirty || productForm.get('brandId')?.touched)">
+            <small class="text-danger" *ngIf="productForm.get('brandId')?.errors?.['required']">Brand is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="productTypeId" class="d-flex align-items-center">
+            <i class="bi bi-box2-heart"></i>Product Type
+          </label>
+          <select class="form-control" id="productTypeId" formControlName="productTypeId" required>
+            <option value="">Select a product type</option>
+            <option *ngFor="let productType of productTypes" [value]="productType.productTypeId">{{productType.name}}</option>
+          </select>
+          <div *ngIf="productForm.get('productTypeId')?.invalid && (productForm.get('productTypeId')?.dirty || productForm.get('productTypeId')?.touched)">
+            <small class="text-danger" *ngIf="productForm.get('productTypeId')?.errors?.['required']">Product Type is required</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="image" class="d-flex align-items-center">
+            <i class="bi bi-image"></i>Image
+          </label>
+          <input type="file" class="form-control" id="image" formControlName="image" (change)="onFileChange($event)" required>
+          <div *ngIf="productForm.get('image')?.invalid && (productForm.get('image')?.dirty || productForm.get('image')?.touched)">
+            <small class="text-danger" *ngIf="productForm.get('image')?.errors?.['required']">Image is required</small>
+          </div>
+
+          <div *ngIf="productForm.get('image')?.valid">
+            <img [src]="getImageUrl(product.image)" alt="Product Image" width="200" height="200">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+      Submit
+    </button>
+  </form>
+</div>

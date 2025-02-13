@@ -1,0 +1,24 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="modal">
+
+  <div class="login-form">
+    <form (ngSubmit)="onSubmit()">
+      <h4 class="modal-title">Log in</h4>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password"
+          required>
+      </div>
+      <div class="form-group small clearfix">
+        <label class="checkbox-inline"><input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe"> Remember me</label>
+        <a href="#" class="forgot-link">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+    </form>
+    <div class="text-center small">Don't have an account? <a routerLink="/register">Register here</a></div>
+  </div>
+
+
+</div>
