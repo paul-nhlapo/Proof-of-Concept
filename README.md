@@ -39,15 +39,15 @@ Ensure you have the following installed:
 1. Open the .NET Core application in Visual Studio 2022.
 
 2. Update the **appsettings.json** file to match your SQL Server instance:
-``
+
 "ConnectionStrings": {
    "DefaultConnection": "Server=.;Database='Input your database name here';Trusted_Connection=True;MultipleActiveResultSets=True"
 }
-``
+
 3. Open **Package Manager** Console and run:
 
-``add-migration initial
-update-database``
+add-migration initial
+update-database
 
 4. Run **SqlDataCodeScript.sql** in SQL Server Management Studio to populate initial data.
 
@@ -58,13 +58,13 @@ update-database``
 1. Navigate to the Angular project directory.
 
 2. Install dependencies:
-``
+
 npm install
-``
+
 3. Start the Angular application:
-``
+
 ng serve
-``
+
 4. Open your browser and navigate to **http://localhost:4200/.**
 
 ### Running the Application
@@ -91,7 +91,7 @@ ng serve
 
 - The purpose of this project is to demonstrate:
 
-- Full-stack development using Angular and .NET 6.
+- Full-stack development using Angular and .NET 8.
 
 - Secure user authentication and CRUD operations.
 
